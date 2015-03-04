@@ -1,0 +1,7 @@
+Audio Visualizer/Debug/
+Debug/
+*.mp3
+*.dll
+ipch/
+Audio Visualizer.suo
+Audio Visualizer.sdf
