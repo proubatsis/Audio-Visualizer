@@ -8,15 +8,15 @@ class BarVisualizer : public Visualizer
 {
 public:
 	BarVisualizer(sf::RenderWindow* window, Music* music);
-	void render();
+	virtual void render();
 
 private:
-	std::vector<sf::RectangleShape> _bars;
 	std::vector<float> _previousSpectrum;
 
-	void smooth(std::vector<float>& spectrum);
-
+protected:
 	int _barWidth;
+	std::vector<sf::RectangleShape> _bars;
+	void smooth(std::vector<float>& spectrum);
 };
 
 #endif
