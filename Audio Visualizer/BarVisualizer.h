@@ -12,6 +12,10 @@ public:
 
 private:
 	std::vector<sf::RectangleShape> _bars;
+	std::vector<float> _previousSpectrum;
+
+	void smooth(std::vector<float>& spectrum);
+
 	int _barWidth;
 };
 
