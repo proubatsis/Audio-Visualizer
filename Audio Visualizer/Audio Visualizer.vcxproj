@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BarVisualizer.cpp" />
+    <ClCompile Include="CircleBarVisualizer.cpp" />
     <ClCompile Include="ColourVisualizer.cpp" />
     <ClCompile Include="FMODMusic.cpp" />
     <ClCompile Include="main.cpp" />
@@ -88,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BarVisualizer.h" />
+    <ClInclude Include="CircleBarVisualizer.h" />
     <ClInclude Include="ColourVisualizer.h" />
     <ClInclude Include="FMODMusic.h" />
     <ClInclude Include="Music.h" />
