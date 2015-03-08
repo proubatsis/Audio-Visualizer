@@ -11,29 +11,35 @@ RGBCirclesVisualizer::RGBCirclesVisualizer(sf::RenderWindow* window, Music* musi
 	_circles[0].setFillColor(sf::Color(255, 0, 0, 128));
 	_circles[1].setFillColor(sf::Color(0, 0, 255, 128));
 	_circles[2].setFillColor(sf::Color(0, 255, 0, 128));
+
+	_aHist = _bHist = _cHist = 0;
 }
 
-float average(float* a, int s)
+float RGBCirclesVisualizer::sum(float* vals,  int size)
 {
-	float sf = 0;
-	for(int i = 0; i < s; i++) sf += a[i];
-	return sf / s;
+	float total = 0;
+	for(int i = 0; i < size; i++) total += vals[i];
+	return total;
 }
 
-float filter(float* a, int s)
+float RGBCirclesVisualizer::smooth(float n, float& hist)
 {
-	float f = average(a, s);
-	f = f * f * (3 - 2 * f);
-	return f;
+	float a = hist;
+	hist = n;
+	return 0.5f * (n - a) + a;
 }
 
 void RGBCirclesVisualizer::render()
 {
-	std::vector<float> spectrum = vMusic->getSpectrum();
+	std::vector<float> spectrum = vMusic->getRawSpectrum();
 
-	float a = filter(&spectrum[0], 3);
-	float b = filter(&spectrum[3], 3);
-	float c = filter(&spectrum[6], 3);
+	float a = sum(&spectrum[0], 16);
+	float b = sum(&spectrum[17], 32);
+	float c = sum(&spectrum[49], 32);
+
+	a = smooth(a, _aHist);
+	b = smooth(b, _bHist);
+	c = smooth(c, _cHist);
 
 	adjustCircles(RADIUS * (a + 0.25f), RADIUS * (b + 0.25f), RADIUS * (c + 0.25f));
 
