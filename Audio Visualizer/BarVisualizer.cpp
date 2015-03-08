@@ -4,9 +4,20 @@ BarVisualizer::BarVisualizer(sf::RenderWindow* window, Music* music)
 	: Visualizer(window, music)
 {
 	_barWidth = 5;
+	initializeBars();
+}
 
-	for(int i = 0; i < window->getSize().x / _barWidth; i++)
+void BarVisualizer::initializeBars()
+{
+	for(int i = 0; i < vWindow->getSize().x / _barWidth; i++)
 		_bars.push_back(sf::RectangleShape(sf::Vector2f(i * _barWidth, 0)));
+}
+
+void BarVisualizer::setBar(int i, std::vector<float>& spectrum)
+{
+	int h = (spectrum[i] / 0.05f) * vWindow->getSize().y * 0.5f;
+	_bars[i].setPosition(i * _barWidth, vWindow->getSize().y - h);
+	_bars[i].setSize(sf::Vector2f(_barWidth, h));
 }
 
 void BarVisualizer::smooth(std::vector<float>& spectrum)
@@ -29,10 +40,7 @@ void BarVisualizer::render()
 
 	for(int i = 0; i < iter; i++)
 	{
-		int h = (spectrum[i] / 0.05f) * vWindow->getSize().y * 0.5f;
-		_bars[i].setPosition(i * _barWidth, vWindow->getSize().y - h);
-		_bars[i].setSize(sf::Vector2f(_barWidth, h));
-
+		setBar(i, spectrum);
 		vWindow->draw(_bars[i]);
 	}
 }

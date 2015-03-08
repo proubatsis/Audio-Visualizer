@@ -17,6 +17,9 @@ protected:
 	int _barWidth;
 	std::vector<sf::RectangleShape> _bars;
 	void smooth(std::vector<float>& spectrum);
+
+	virtual void initializeBars();
+	virtual void setBar(int i, std::vector<float>& spectrum);
 };
 
 #endif
