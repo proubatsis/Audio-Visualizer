@@ -7,13 +7,12 @@ class CircleBarVisualizer : public BarVisualizer
 {
 public:
 	CircleBarVisualizer(sf::RenderWindow* window, Music* music);
-	
-private:
-	float _innerRadius, _theta, _thetaR;
 
 protected:
-	void initializeBars();
-	void setBar(int i, std::vector<float>& spectrum);
+	float _innerRadius, _theta, _thetaR;
+
+	virtual void initializeBars();
+	virtual void setBar(int i, std::vector<float>& spectrum);
 };
 
 #endif
