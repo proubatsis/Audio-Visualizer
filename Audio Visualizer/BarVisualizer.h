@@ -12,6 +12,7 @@ public:
 
 private:
 	std::vector<float> _previousSpectrum;
+	bool _areBarsInitialized;
 
 protected:
 	int _barWidth;

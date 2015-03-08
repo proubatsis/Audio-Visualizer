@@ -4,7 +4,7 @@ BarVisualizer::BarVisualizer(sf::RenderWindow* window, Music* music)
 	: Visualizer(window, music)
 {
 	_barWidth = 5;
-	initializeBars();
+	_areBarsInitialized = false;
 }
 
 void BarVisualizer::initializeBars()
@@ -33,6 +33,12 @@ void BarVisualizer::smooth(std::vector<float>& spectrum)
 
 void BarVisualizer::render()
 {
+	if(!_areBarsInitialized)
+	{
+		initializeBars();
+		_areBarsInitialized = true;
+	}
+
 	std::vector<float> spectrum = vMusic->getRawSpectrum();
 	smooth(spectrum);
 
