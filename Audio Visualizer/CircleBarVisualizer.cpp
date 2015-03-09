@@ -29,6 +29,6 @@ void CircleBarVisualizer::setBar(int i, std::vector<float>& spectrum)
 	int h = (spectrum[i] / 0.125f) * vWindow->getSize().y * 0.5f + 1;
 
 	_bars[i] = sf::RectangleShape(sf::Vector2f(_barWidth, h));
-	_bars[i].rotate(angle);
+	_bars[i].rotate(angle - 90);
 	_bars[i].setPosition(_innerRadius * cos(angleR) + vWindow->getSize().x / 2, _innerRadius * sin(angleR) + vWindow->getSize().y / 2);
 }
