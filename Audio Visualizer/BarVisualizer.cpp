@@ -39,7 +39,7 @@ void BarVisualizer::render()
 		_areBarsInitialized = true;
 	}
 
-	std::vector<float> spectrum = vMusic->getRawSpectrum();
+	std::vector<float> spectrum = vMusic->getSpectrum();
 	smooth(spectrum);
 
 	int iter = _bars.size() < spectrum.size() ? _bars.size() : spectrum.size();

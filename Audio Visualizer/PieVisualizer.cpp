@@ -91,7 +91,7 @@ sf::Color PieVisualizer::getColor(int i, float sum)
 
 void PieVisualizer::render()
 {
-	std::vector<float> spectrum = vMusic->getRawSpectrum();
+	std::vector<float> spectrum = vMusic->getSpectrum();
 
 	std::vector<float> sums;
 

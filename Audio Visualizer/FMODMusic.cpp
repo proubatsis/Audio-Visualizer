@@ -39,7 +39,7 @@ void FMODMusic::update()
 	_system->update();
 }
 
-std::vector<float> FMODMusic::getRawSpectrum()
+std::vector<float> FMODMusic::getSpectrum()
 {
 	const int SIZE = 1024;
 	std::vector<float> left(SIZE), right(SIZE), spectrum;
@@ -53,19 +53,5 @@ std::vector<float> FMODMusic::getRawSpectrum()
 		spectrum.push_back((left[i] + right[i]) / 2.0f);
 	}
 
-	return spectrum;
-}
-
-std::vector<float> FMODMusic::getSpectrum()
-{
-	std::vector<float> spectrum = getRawSpectrum();
-
-	float maxFreq = INT_MIN;	//Used to normalize the spectrum
-	//Average of the left and right channels
-	for(int i = 0; i < spectrum.size(); i++)
-		if(spectrum[i] > maxFreq) maxFreq = spectrum[i];
-
-	//Normalize the spectrum
-	for(int i = 0; i < spectrum.size(); i++) spectrum[i] /= maxFreq;
 	return spectrum;
 }

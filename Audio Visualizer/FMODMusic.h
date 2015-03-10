@@ -14,7 +14,6 @@ public:
 	void play();
 	void update();
 
-	std::vector<float> getRawSpectrum();
 	std::vector<float> getSpectrum();
 
 private:

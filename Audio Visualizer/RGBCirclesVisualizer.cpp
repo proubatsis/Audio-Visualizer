@@ -31,7 +31,7 @@ float RGBCirclesVisualizer::smooth(float n, float& hist)
 
 void RGBCirclesVisualizer::render()
 {
-	std::vector<float> spectrum = vMusic->getRawSpectrum();
+	std::vector<float> spectrum = vMusic->getSpectrum();
 
 	float a = sum(&spectrum[0], 16);
 	float b = sum(&spectrum[17], 32);
