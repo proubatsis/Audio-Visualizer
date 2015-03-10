@@ -1,6 +1,5 @@
 #include "PieVisualizer.h"
 #define PI 3.14159265359
-#include <iostream>
 
 PieVisualizer::PieVisualizer(sf::RenderWindow* window, Music* music)
 	: Visualizer(window, music), SEGMENTS(32), BASE_RADIUS(64)
