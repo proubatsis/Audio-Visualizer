@@ -48,6 +48,9 @@
     <ClCompile Include="CircleDotVisualizer.cpp">
       <Filter>Source Files\Visualizer</Filter>
     </ClCompile>
+    <ClCompile Include="PieVisualizer.cpp">
+      <Filter>Source Files\Visualizer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Music.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files\Visualizer</Filter>
     </ClInclude>
     <ClInclude Include="CircleDotVisualizer.h">
+      <Filter>Header Files\Visualizer</Filter>
+    </ClInclude>
+    <ClInclude Include="PieVisualizer.h">
       <Filter>Header Files\Visualizer</Filter>
     </ClInclude>
   </ItemGroup>

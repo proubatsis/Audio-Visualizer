@@ -86,6 +86,7 @@
     <ClCompile Include="ColourVisualizer.cpp" />
     <ClCompile Include="FMODMusic.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PieVisualizer.cpp" />
     <ClCompile Include="RGBCirclesVisualizer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +96,7 @@
     <ClInclude Include="ColourVisualizer.h" />
     <ClInclude Include="FMODMusic.h" />
     <ClInclude Include="Music.h" />
+    <ClInclude Include="PieVisualizer.h" />
     <ClInclude Include="RGBCirclesVisualizer.h" />
     <ClInclude Include="Visualizer.h" />
   </ItemGroup>
