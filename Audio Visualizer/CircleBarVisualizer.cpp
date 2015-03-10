@@ -6,8 +6,8 @@
 CircleBarVisualizer::CircleBarVisualizer(sf::RenderWindow* window, Music* music)
 	: BarVisualizer(window, music)
 {
-	_barWidth = 10;
-	_innerRadius = 25;
+	_barWidth = 3;
+	_innerRadius = 50;
 }
 
 void CircleBarVisualizer::initializeBars()
