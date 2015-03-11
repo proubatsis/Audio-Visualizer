@@ -8,7 +8,7 @@ int main()
 {
 	//FMODMusic music("ee.mp3");
 
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "Hello, World!");
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "Audio Visualizer - By: Panagiotis Roubatsis");
 	window.setVerticalSyncEnabled(true);
 
 	//PieVisualizer visualizer(&window, &music);
