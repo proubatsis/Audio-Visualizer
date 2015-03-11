@@ -7,5 +7,6 @@
 #include "CircleBarVisualizer.h"
 #include "CircleDotVisualizer.h"
 #include "PieVisualizer.h"
+#include "InvertedCircleBarVisualizer.h"
 
 #endif

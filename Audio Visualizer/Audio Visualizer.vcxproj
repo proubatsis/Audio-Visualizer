@@ -88,6 +88,7 @@
     <ClCompile Include="ColourVisualizer.cpp" />
     <ClCompile Include="FMODMusic.cpp" />
     <ClCompile Include="Form.cpp" />
+    <ClCompile Include="InvertedCircleBarVisualizer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PieVisualizer.cpp" />
     <ClCompile Include="RadioButton.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="FileDialog.h" />
     <ClInclude Include="FMODMusic.h" />
     <ClInclude Include="Form.h" />
+    <ClInclude Include="InvertedCircleBarVisualizer.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="PieVisualizer.h" />
     <ClInclude Include="RadioButton.h" />

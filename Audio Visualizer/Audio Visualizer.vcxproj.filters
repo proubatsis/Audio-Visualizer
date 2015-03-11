@@ -78,6 +78,9 @@
     <ClCompile Include="WindowsFileDialog.cpp">
       <Filter>Source Files\FileDialogs</Filter>
     </ClCompile>
+    <ClCompile Include="InvertedCircleBarVisualizer.cpp">
+      <Filter>Source Files\Visualizer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Music.h">
@@ -130,6 +133,9 @@
     </ClInclude>
     <ClInclude Include="WindowsFileDialog.h">
       <Filter>Header Files\FileDialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="InvertedCircleBarVisualizer.h">
+      <Filter>Header Files\Visualizer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

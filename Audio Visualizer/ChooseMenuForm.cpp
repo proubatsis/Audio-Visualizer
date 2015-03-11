@@ -22,13 +22,14 @@ ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 	addText("", BASE_X + 230, BASE_Y + 80);
 
 	addButton("Open Music File", BASE_X + 25, BASE_Y + 80, [=](){this->openFile();});
-	addButton("Play Song!", BASE_X, BASE_Y + 370, [=](){this->playMusic();});
+	addButton("Play Song!", BASE_X, BASE_Y + 410, [=](){this->playMusic();});
 
 	addRadioButton("Bar Graph", BASE_X + 25, BASE_Y + 160, _visualizerGroup);
 	addRadioButton("Circle Bar Graph", BASE_X + 25, BASE_Y + 200, _visualizerGroup);
 	addRadioButton("Red, Green & Blue Circles", BASE_X + 25, BASE_Y + 240, _visualizerGroup);
 	addRadioButton("Dots", BASE_X + 25, BASE_Y + 280, _visualizerGroup);
 	addRadioButton("Colourful Pie", BASE_X + 25, BASE_Y + 320, _visualizerGroup);
+	addRadioButton("Rainbow Disc", BASE_X + 25, BASE_Y + 360, _visualizerGroup);
 }
 
 ChooseMenuForm::~ChooseMenuForm()
@@ -80,12 +81,14 @@ void ChooseMenuForm::playMusic()
 	case 4:
 		_visualizer = new PieVisualizer(vWindow, _music);
 		break;
+	case 5:
+		_visualizer = new InvertedCircleBarVisualizer(vWindow, _music);
+		break;
 	default:
 		_visualizer = new BarVisualizer(vWindow, _music);
 		break;
 	}
 
 	_music->play();
-
 	_isFormActive = false;
 }
