@@ -92,6 +92,7 @@
     <ClCompile Include="PieVisualizer.cpp" />
     <ClCompile Include="RadioButton.cpp" />
     <ClCompile Include="RGBCirclesVisualizer.cpp" />
+    <ClCompile Include="WindowsFileDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BarVisualizer.h" />
@@ -100,6 +101,7 @@
     <ClInclude Include="CircleBarVisualizer.h" />
     <ClInclude Include="CircleDotVisualizer.h" />
     <ClInclude Include="ColourVisualizer.h" />
+    <ClInclude Include="FileDialog.h" />
     <ClInclude Include="FMODMusic.h" />
     <ClInclude Include="Form.h" />
     <ClInclude Include="Music.h" />
@@ -109,6 +111,7 @@
     <ClInclude Include="Theme.h" />
     <ClInclude Include="Visualizer.h" />
     <ClInclude Include="Visualizers.h" />
+    <ClInclude Include="WindowsFileDialog.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

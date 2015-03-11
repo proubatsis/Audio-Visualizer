@@ -31,6 +31,12 @@
     <Filter Include="Source Files\GUI">
       <UniqueIdentifier>{9ee911b6-f6e0-4410-948f-3c395c413fdd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\FileDialogs">
+      <UniqueIdentifier>{64af019a-abf4-4408-be18-7597e60cbf29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileDialogs">
+      <UniqueIdentifier>{b3380167-7ab4-4339-984e-870f7dce9f0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="ChooseMenuForm.cpp">
       <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsFileDialog.cpp">
+      <Filter>Source Files\FileDialogs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +124,12 @@
     </ClInclude>
     <ClInclude Include="Visualizers.h">
       <Filter>Header Files\Visualizer</Filter>
+    </ClInclude>
+    <ClInclude Include="FileDialog.h">
+      <Filter>Header Files\FileDialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsFileDialog.h">
+      <Filter>Header Files\FileDialogs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
