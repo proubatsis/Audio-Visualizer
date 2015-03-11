@@ -17,19 +17,23 @@ ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 	const int BASE_Y = 25;
 
 	addText("Audio Visualizer - By: Panagiotis Roubatsis", BASE_X, BASE_Y);
-	addText("Choose a song:", BASE_X, BASE_Y + 45);
-	addText("Choose an effect:", BASE_X, BASE_Y + 130);
-	addText("", BASE_X + 230, BASE_Y + 80);
+	addText("Choose an effect:", BASE_X, BASE_Y + 60);
 
-	addButton("Open Music File", BASE_X + 25, BASE_Y + 80, [=](){this->openFile();});
-	addButton("Play Song!", BASE_X, BASE_Y + 410, [=](){this->playMusic();});
+	addButton("Play Song!", BASE_X, BASE_Y + 370,
+		[=]()
+	{
+		this->openFile();
+		if(_filePath.length() > 0) this->playMusic();
+	});
 
-	addRadioButton("Bar Graph", BASE_X + 25, BASE_Y + 160, _visualizerGroup);
-	addRadioButton("Circle Bar Graph", BASE_X + 25, BASE_Y + 200, _visualizerGroup);
-	addRadioButton("Red, Green & Blue Circles", BASE_X + 25, BASE_Y + 240, _visualizerGroup);
-	addRadioButton("Dots", BASE_X + 25, BASE_Y + 280, _visualizerGroup);
-	addRadioButton("Colourful Pie", BASE_X + 25, BASE_Y + 320, _visualizerGroup);
-	addRadioButton("Rainbow Disc", BASE_X + 25, BASE_Y + 360, _visualizerGroup);
+	addRadioButton("Bar Graph", BASE_X + 25, BASE_Y + 100, _visualizerGroup);
+	addRadioButton("Circle Bar Graph", BASE_X + 25, BASE_Y + 140, _visualizerGroup);
+	addRadioButton("Red, Green & Blue Circles", BASE_X + 25, BASE_Y + 180, _visualizerGroup);
+	addRadioButton("Dots", BASE_X + 25, BASE_Y + 220, _visualizerGroup);
+	addRadioButton("Colourful Pie", BASE_X + 25, BASE_Y + 260, _visualizerGroup);
+	addRadioButton("Rainbow Disc", BASE_X + 25, BASE_Y + 300, _visualizerGroup);
+
+	_visualizerGroup.check(0);
 }
 
 ChooseMenuForm::~ChooseMenuForm()
@@ -56,8 +60,6 @@ void ChooseMenuForm::openFile()
 
 	if(dialog.isFileChosen()) _filePath = dialog.getFilePath();
 	else _filePath = "";
-
-	_textItems[_textItems.size() - 1].setString(_filePath);
 }
 
 void ChooseMenuForm::playMusic()
