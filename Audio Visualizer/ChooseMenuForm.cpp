@@ -62,7 +62,6 @@ void ChooseMenuForm::openFile()
 void ChooseMenuForm::playMusic()
 {
 	_music = new FMODMusic(_filePath);
-	_visualizer = new BarVisualizer(vWindow, _music);
 
 	switch(_visualizerGroup.getCheckedId())
 	{
