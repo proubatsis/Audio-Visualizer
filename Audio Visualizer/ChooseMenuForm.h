@@ -22,6 +22,7 @@ private:
 	Visualizer* _visualizer;
 
 	gui::RadioGroup _visualizerGroup;
+	std::string _filePath;
 
 	void playMusic();
 	void openFile();
