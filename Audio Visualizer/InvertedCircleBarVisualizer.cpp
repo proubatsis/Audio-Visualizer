@@ -1,6 +1,5 @@
 #include "InvertedCircleBarVisualizer.h"
 #include <cmath>
-#include <iostream>
 
 InvertedCircleBarVisualizer::InvertedCircleBarVisualizer(sf::RenderWindow* window, Music* music)
 	: CircleBarVisualizer(window, music)
