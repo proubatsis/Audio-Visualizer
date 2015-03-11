@@ -9,7 +9,7 @@ public:
 	CircleBarVisualizer(sf::RenderWindow* window, Music* music);
 
 protected:
-	float _innerRadius, _theta, _thetaR;
+	float _innerRadius, _theta, _thetaR, _barNormalAngle, _barCountMultiplier;
 
 	virtual void initializeBars();
 	virtual void setBar(int i, std::vector<float>& spectrum);
