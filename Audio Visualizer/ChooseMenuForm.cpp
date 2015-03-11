@@ -1,6 +1,7 @@
 #include "ChooseMenuForm.h"
 #include "WindowsFileDialog.h"
 #include <iostream>
+#include <ShObjIdl.h>
 
 ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 	: Form(window, theme)
@@ -55,7 +56,12 @@ void ChooseMenuForm::render()
 
 void ChooseMenuForm::openFile()
 {
-	WindowsFileDialog dialog;
+	COMDLG_FILTERSPEC filters[] =
+	{
+		{L"Music", L"*.mp3;*.ogg;*.wav;*.wma"}
+	};
+
+	WindowsFileDialog dialog(std::vector<COMDLG_FILTERSPEC>(filters, filters + 1));
 	dialog.openDialog();
 
 	if(dialog.isFileChosen()) _filePath = dialog.getFilePath();
