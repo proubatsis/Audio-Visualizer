@@ -34,6 +34,9 @@ namespace gui
 		std::vector<Button> _buttons;
 		std::vector<RadioButton> _radioButtons;
 		std::vector<sf::Text> _textItems;
+
+	private:
+		bool _isMouseDownOnLastFrame;
 	};
 };
 

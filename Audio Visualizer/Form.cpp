@@ -1,7 +1,7 @@
 #include "Form.h"
 
 gui::Form::Form(sf::RenderWindow* window, Theme& theme)
-	: _theme(theme)
+	: _theme(theme), _isMouseDownOnLastFrame(false)
 {
 	vWindow = window;
 
@@ -55,7 +55,7 @@ void gui::Form::render()
 		sf::Vector2i point = sf::Mouse::getPosition(*vWindow);
 
 		_buttons[i].hover(point.x, point.y);
-		if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) _buttons[i].click(point.x, point.y);
+		if(!sf::Mouse::isButtonPressed(sf::Mouse::Left) && _isMouseDownOnLastFrame) _buttons[i].click(point.x, point.y);
 		
 		_buttons[i].render();
 	}
@@ -69,4 +69,6 @@ void gui::Form::render()
 		
 		_radioButtons[i].render();
 	}
+
+	_isMouseDownOnLastFrame = sf::Mouse::isButtonPressed(sf::Mouse::Left);
 }
