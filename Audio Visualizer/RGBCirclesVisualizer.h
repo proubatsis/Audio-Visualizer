@@ -1,3 +1,10 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: Three overlapping circle (Coloured red, green and blue). Each circle
+	reacts based upon a certain set of frequencies.
+*/
+
 #ifndef RGB_CIRCLES_VISUALIZER
 #define RGB_CIRCLES_VISUALIZER
 
@@ -12,9 +19,10 @@ public:
 private:
 	sf::CircleShape _circles[3];
 	const float RADIUS;
-	float _aHist, _bHist, _cHist;
+	float _aHist, _bHist, _cHist;					//Used for time smoothing
 
-	void adjustCircles(float a, float b, float c);	//The radius for each circle
+	void adjustCircles(float a, float b, float c);	//Adjust the radius for each circle
+
 	float sum(float* vals, int size);
 	float smooth(float n, float& hist);
 };

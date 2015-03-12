@@ -1,3 +1,9 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: Software that plays and visualizes music.
+*/
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "ChooseMenuForm.h"
@@ -6,13 +12,8 @@ using namespace std;
 
 int main()
 {
-	//FMODMusic music("ee.mp3");
-
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "Audio Visualizer - By: Panagiotis Roubatsis");
 	window.setVerticalSyncEnabled(true);
-
-	//PieVisualizer visualizer(&window, &music);
-	//music.play();
 
 	//Set up the theme for the GUI
 	gui::Theme theme;
@@ -34,10 +35,7 @@ int main()
 			if(e.type == sf::Event::Closed) window.close();
 		}
 
-		//music.update();
-
 		window.clear();
-		//visualizer.render();
 		form.render();
 		window.display();
 	}

@@ -1,3 +1,10 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: Based off of the CircleBarVisualizer. Instead of
+	bars it uses small dots.
+*/
+
 #ifndef CIRCLE_DOT_VISUALIZER
 #define CIRCLE_DOT_VISUALIZER
 

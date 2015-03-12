@@ -1,3 +1,10 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: An abstract class that defines the basic
+	functionality of a visualizer.
+*/
+
 #ifndef VISUALIZER_H
 #define VISUALIZER_H
 

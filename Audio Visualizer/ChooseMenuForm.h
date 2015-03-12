@@ -1,3 +1,11 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: A child of the Form class. It provides
+	a menu for the user to choose their desired visualization
+	and song.
+*/
+
 #ifndef CHOOSE_MENU_FORM
 #define CHOOSE_MENU_FORM
 
@@ -16,7 +24,7 @@ public:
 	void render();
 
 private:
-	bool _isFormActive;
+	bool _isFormActive;					//Should the form or the visualizer be rendered?
 
 	Music* _music;
 	Visualizer* _visualizer;

@@ -1,3 +1,10 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: An implementation of the Music abstract class.
+	FMODMusic plays music and analyzes it using the FMOD library (http://www.fmod.org/).
+*/
+
 #ifndef FMOD_MUSIC_H
 #define FMOD_MUSIC_H
 
@@ -23,6 +30,8 @@ private:
 
 	bool _succesfulInitialization, _isPlaying;
 
+	//Disables the class' functionality if
+	//an error occurs during initialization.
 	bool checkError(FMOD_RESULT result);
 };
 

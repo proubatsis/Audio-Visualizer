@@ -45,11 +45,14 @@ void gui::Form::addText(std::string text, int x, int y)
 
 void gui::Form::render()
 {
+	//Render the background and the form background
 	vWindow->draw(_backgroundRectangle);
 	vWindow->draw(_formRectangle);
 
+	//Render all the text
 	for(int i = 0; i < _textItems.size(); i++) vWindow->draw(_textItems[i]);
 	
+	//Handle buttons hover and click events, then render them.
 	for(int i = 0; i < _buttons.size(); i++)
 	{
 		sf::Vector2i point = sf::Mouse::getPosition(*vWindow);
@@ -60,6 +63,7 @@ void gui::Form::render()
 		_buttons[i].render();
 	}
 	
+	//Handle radio buttons hover and click events, then render them.
 	for(int i = 0; i < _radioButtons.size(); i++)
 	{
 		sf::Vector2i point = sf::Mouse::getPosition(*vWindow);

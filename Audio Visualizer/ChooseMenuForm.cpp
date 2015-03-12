@@ -6,7 +6,7 @@
 ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 	: Form(window, theme)
 {
-	//Null the pointers until we want to start playing music
+	//Make the pointers null until we want to start playing music
 	_music = 0;
 	_visualizer = 0;
 
@@ -34,6 +34,7 @@ ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 	addRadioButton("Colourful Pie", BASE_X + 25, BASE_Y + 260, _visualizerGroup);
 	addRadioButton("Rainbow Disc", BASE_X + 25, BASE_Y + 300, _visualizerGroup);
 
+	//Check the bar graph radio button by default
 	_visualizerGroup.check(0);
 }
 
@@ -56,22 +57,29 @@ void ChooseMenuForm::render()
 
 void ChooseMenuForm::openFile()
 {
+	//Create appropriate filters for the file open dialog
 	COMDLG_FILTERSPEC filters[] =
 	{
 		{L"Music", L"*.mp3;*.ogg;*.wav;*.wma"}
 	};
 
+	//Show the dialog to the user
 	WindowsFileDialog dialog(std::vector<COMDLG_FILTERSPEC>(filters, filters + 1));
 	dialog.openDialog();
 
+	//Retrieve the file's path assuming that one has been chosen.
 	if(dialog.isFileChosen()) _filePath = dialog.getFilePath();
 	else _filePath = "";
 }
 
 void ChooseMenuForm::playMusic()
 {
+	//Use the FMod library for music playback
+	//and analysis.
 	_music = new FMODMusic(_filePath);
 
+	//Determine which visualization to use
+	//based on which radio button is checked.
 	switch(_visualizerGroup.getCheckedId())
 	{
 	case 0:
@@ -98,5 +106,7 @@ void ChooseMenuForm::playMusic()
 	}
 
 	_music->play();
+
+	//Display the visualizer instead of the form.
 	_isFormActive = false;
 }

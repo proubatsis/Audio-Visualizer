@@ -15,6 +15,22 @@ CircleBarVisualizer::CircleBarVisualizer(sf::RenderWindow* window, Music* music)
 
 void CircleBarVisualizer::initializeBars()
 {
+	//Formula derived using the cosine law
+	//                     +
+	//                 *   |
+	//         r    *      |
+	//           *         |
+	//        *            |
+	//     *               |
+	//  *     theta        | b
+	//     *               |
+	//        *            |
+	//           *         |
+	//        r     *      |
+	//                 *   |
+	//                     +
+	
+	// cos(theta) = (1 - b ^ 2) / (2 * r ^ 2)
 	_thetaR = acosf(1-((_barWidth * _barWidth) / (2 * _innerRadius * _innerRadius)));
 	_theta = _thetaR * TO_DEG;
 	

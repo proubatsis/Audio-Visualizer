@@ -1,3 +1,9 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: Horrible visualizer that will be removed later.
+*/
+
 #ifndef COLOUR_VISUALIZER
 #define COLOUR_VISAULIZER
 

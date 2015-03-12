@@ -1,3 +1,13 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: An effect where there is a colourful circle that
+	is cut into "pie" slices. The slices move away from the center depending
+	on the amplitude of certain frequencies. The colours get more intense as
+	the amplitude increases. There are two circles on either side of the "pie".
+	These are used to show the low frequencies, usually beats.
+*/
+
 #ifndef PIE_VISUALIZER_H
 #define PIE_VISUALIZER_H
 
@@ -10,6 +20,8 @@ public:
 	virtual void render();
 
 protected:
+
+	//A slice of "pie"
 	struct Segment
 	{
 		sf::ConvexShape triangle;
@@ -21,7 +33,8 @@ protected:
 
 	sf::CircleShape _beatCircle, _beatCircle2;
 	std::vector<Segment> _segments;
-	std::vector<float> _previousSums;
+
+	std::vector<float> _previousSums;	//Used for time smoothing
 
 	float sum(float* values, int size);
 	void smooth(std::vector<float>& sums);

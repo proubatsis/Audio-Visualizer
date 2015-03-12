@@ -4,10 +4,19 @@
 PieVisualizer::PieVisualizer(sf::RenderWindow* window, Music* music)
 	: Visualizer(window, music), SEGMENTS(32), BASE_RADIUS(64)
 {
+	// *                              *
+	//    *                        *
+	//       *      ANGLE       *
+	//          *            *
+	//             *      *
+	// TRIG_ANGLE      *       TRIG_ANGLE
+	//*************************************
+
 	const float ANGLE = 360 / SEGMENTS;
 	const float ANGLERADS = (2 * PI) / SEGMENTS;
 	const float TRIG_ANGLE = (PI - ANGLERADS) / 2;
 
+	//Used to position each slice
 	const float HORIZ = cosf(TRIG_ANGLE), VERT = sinf(TRIG_ANGLE);
 
 	for(int i = 0; i < SEGMENTS; i++)
@@ -25,6 +34,8 @@ PieVisualizer::PieVisualizer(sf::RenderWindow* window, Music* music)
 		shape.rotate(i * ANGLE);
 
 		segment.triangle = shape;
+
+		//Rotates the up vector based on the given angle. Derived from [0, -1] * RotationMatrix.
 		segment.moveDirection = sf::Vector2f(sinf(i * ANGLERADS), -cosf(i * ANGLERADS));
 
 		_segments.push_back(segment);

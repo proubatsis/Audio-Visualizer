@@ -1,3 +1,12 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: This header contains two classes: RadioGroup and RadioButton.
+	The RadioGroup is used to manage radio buttons, all instances of the RadioButton class
+	must be assigned to an instance of the RadioGroup class. The RadioButton is a GUI element
+	used to select items in a list, it is a child of the ButtonClass, no callbacks are needed.
+*/
+
 #ifndef RADIO_BUTTON
 #define RADIO_BUTTON
 
