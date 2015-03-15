@@ -16,7 +16,7 @@ WindowsFileDialog::WindowsFileDialog(std::vector<COMDLG_FILTERSPEC> filterSpec)
 
 void WindowsFileDialog::openDialog()
 {
-	CoInitializeEx(NULL, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
+	CoInitializeEx(NULL, COINIT_MULTITHREADED | COINIT_DISABLE_OLE1DDE);
 
 	//Create an instance of the file open dialog
 	IFileOpenDialog* dialog;
