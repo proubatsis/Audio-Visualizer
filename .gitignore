@@ -11,3 +11,4 @@ Release/
 *.ttf
 *.py
 Audio Visualizer/build_files/
+Audio Visualizer/header.txt
