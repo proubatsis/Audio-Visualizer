@@ -23,7 +23,7 @@ int main()
 	theme.text = sf::Color(255, 255, 255);			//#FFFFFF
 	theme.accent = sf::Color(255, 140, 0);			//#FF8C00
 	theme.formWidth = window.getSize().x * 0.95f;
-	theme.font.loadFromFile("arial.ttf");
+	theme.font.loadFromFile("font.ttf");
 
 	ChooseMenuForm form(&window, theme);
 
