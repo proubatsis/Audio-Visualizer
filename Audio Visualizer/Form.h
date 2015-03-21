@@ -41,7 +41,7 @@ namespace gui
 		sf::RenderWindow* vWindow;
 		sf::RectangleShape _backgroundRectangle, _formRectangle;
 
-		float _xOffset;	//Used to offset elements as they are added to the form.
+		int _xOffset;	//Used to offset elements as they are added to the form.
 		Theme& _theme;
 
 		//GUI elements

@@ -1,6 +1,6 @@
 #include "RGBCirclesVisualizer.h"
 #include <cmath>
-#define SIN_COS_45 0.70710678118
+#define SIN_COS_45 0.70710678118f
 
 RGBCirclesVisualizer::RGBCirclesVisualizer(sf::RenderWindow* window, Music* music)
 	: Visualizer(window, music), RADIUS(128.0f)

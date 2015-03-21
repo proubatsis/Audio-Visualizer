@@ -10,11 +10,11 @@ gui::RadioButton::RadioButton(std::string text, int x, int y, RadioGroup& group,
 
 	_text.setPosition(_text.getPosition().x + _text.getCharacterSize() + 2, _text.getPosition().y);
 
-	_selectionCircle.setRadius(_text.getCharacterSize() / 2);
+	_selectionCircle.setRadius((float)_text.getCharacterSize() / 2);
 	_selectionCircle.setOutlineColor(theme.border);
 	_selectionCircle.setOutlineThickness(2);
 	_selectionCircle.setFillColor(theme.text);
-	_selectionCircle.setPosition(x, y + 1);
+	_selectionCircle.setPosition((float)x, y + 1.0f);
 }
 
 void gui::RadioButton::click(int x, int y)

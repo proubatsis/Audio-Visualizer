@@ -50,7 +50,7 @@ void InvertedCircleBarVisualizer::setBar(int i, std::vector<float>& spectrum)
 	float angleR = _thetaR * i;
 	
 	_volume += spectrum[i];
-	int h = (spectrum[i] / 0.125f) * _innerRadius * 3;
+	float h = (spectrum[i] / 0.125f) * _innerRadius * 3;
 
 	//Damp the lower frequencies
 	float t = (float)i / (_bars.size() - 1);

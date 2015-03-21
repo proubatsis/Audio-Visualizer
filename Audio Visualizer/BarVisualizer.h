@@ -21,7 +21,7 @@ private:
 	bool _areBarsInitialized;				//Has initializeBars() been called yet?
 
 protected:
-	int _barWidth;
+	float _barWidth;
 	std::vector<sf::RectangleShape> _bars;	//The bars that will be rendered to the screen
 
 	//Smooth the current spectrum based on the previous one using interpolation.

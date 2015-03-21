@@ -1,5 +1,5 @@
 #include "PieVisualizer.h"
-#define PI 3.14159265359
+#define PI 3.14159265359f
 
 PieVisualizer::PieVisualizer(sf::RenderWindow* window, Music* music)
 	: Visualizer(window, music), SEGMENTS(32), BASE_RADIUS(64)
@@ -12,7 +12,7 @@ PieVisualizer::PieVisualizer(sf::RenderWindow* window, Music* music)
 	// TRIG_ANGLE      *       TRIG_ANGLE
 	//*************************************
 
-	const float ANGLE = 360 / SEGMENTS;
+	const float ANGLE = 360.0f / SEGMENTS;
 	const float ANGLERADS = (2 * PI) / SEGMENTS;
 	const float TRIG_ANGLE = (PI - ANGLERADS) / 2;
 
@@ -30,7 +30,7 @@ PieVisualizer::PieVisualizer(sf::RenderWindow* window, Music* music)
 		shape.setPoint(1, sf::Vector2f(BASE_RADIUS * HORIZ, -BASE_RADIUS * VERT));
 		shape.setPoint(2, sf::Vector2f(-BASE_RADIUS * HORIZ, -BASE_RADIUS * VERT));
 
-		shape.setPosition(vWindow->getSize().x / 2, vWindow->getSize().y / 2);
+		shape.setPosition(vWindow->getSize().x / 2.0f, vWindow->getSize().y / 2.0f);
 		shape.rotate(i * ANGLE);
 
 		segment.triangle = shape;
@@ -60,7 +60,7 @@ void PieVisualizer::smooth(std::vector<float>& sums)
 		return;
 	}
 
-	for(int i = 0; i < sums.size(); i++)
+	for(size_t i = 0; i < sums.size(); i++)
 	{
 		float a = _previousSums[i];
 		float b = sums[i];
@@ -97,7 +97,7 @@ sf::Color PieVisualizer::getColor(int i, float sum)
 	}
 
 	float scale = sum * 100 + 0.1f;
-	return sf::Color(r * scale, g * scale, b * scale);
+	return sf::Color((sf::Uint8)(r * scale), sf::Uint8(g * scale), sf::Uint8(b * scale));
 }
 
 void PieVisualizer::render()
@@ -112,7 +112,7 @@ void PieVisualizer::render()
 	sums.push_back(sum(&spectrum[0], 8));
 	sums.push_back(sum(&spectrum[8], 8));
 
-	for(int i = 0; i < _segments.size(); i++)
+	for(size_t i = 0; i < _segments.size(); i++)
 		sums.push_back(sum(&spectrum[BASE_INDEX + SUM_SLICE * i], SUM_SLICE));
 
 	smooth(sums);
@@ -126,7 +126,7 @@ void PieVisualizer::render()
 	vWindow->draw(_beatCircle2);
 
 	//Draw the main frequency circle
-	for(int i = 0; i < _segments.size(); i++)
+	for(size_t i = 0; i < _segments.size(); i++)
 	{
 		float d = sums[i + 2] * 1024;
 

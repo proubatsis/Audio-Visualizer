@@ -11,9 +11,9 @@ gui::Form::Form(sf::RenderWindow* window, Theme& theme)
 	_backgroundRectangle.setPosition(0, 0);
 	_backgroundRectangle.setSize((sf::Vector2f)window->getSize());
 
-	_xOffset = 0.5f * (window->getSize().x - theme.formWidth);
-	_formRectangle.setPosition(_xOffset, 0);
-	_formRectangle.setSize(sf::Vector2f(theme.formWidth, window->getSize().y));
+	_xOffset = (int)(0.5f * (window->getSize().x - theme.formWidth));
+	_formRectangle.setPosition((float)_xOffset, 0);
+	_formRectangle.setSize(sf::Vector2f((float)theme.formWidth, (float)window->getSize().y));
 }
 
 void gui::Form::addButton(std::string text, int x, int y, std::function<void ()> clickCallback)
@@ -38,7 +38,7 @@ void gui::Form::addText(std::string text, int x, int y)
 
 	sfText.setFont(_theme.font);
 	sfText.setString(text);
-	sfText.setPosition(x + _xOffset, y);
+	sfText.setPosition((float)x + _xOffset, (float)y);
 
 	_textItems.push_back(sfText);
 }
@@ -50,10 +50,10 @@ void gui::Form::render()
 	vWindow->draw(_formRectangle);
 
 	//Render all the text
-	for(int i = 0; i < _textItems.size(); i++) vWindow->draw(_textItems[i]);
+	for(size_t i = 0; i < _textItems.size(); i++) vWindow->draw(_textItems[i]);
 	
 	//Handle buttons hover and click events, then render them.
-	for(int i = 0; i < _buttons.size(); i++)
+	for(size_t i = 0; i < _buttons.size(); i++)
 	{
 		sf::Vector2i point = sf::Mouse::getPosition(*vWindow);
 
@@ -64,7 +64,7 @@ void gui::Form::render()
 	}
 	
 	//Handle radio buttons hover and click events, then render them.
-	for(int i = 0; i < _radioButtons.size(); i++)
+	for(size_t i = 0; i < _radioButtons.size(); i++)
 	{
 		sf::Vector2i point = sf::Mouse::getPosition(*vWindow);
 

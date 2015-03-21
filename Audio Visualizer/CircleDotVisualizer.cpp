@@ -11,7 +11,7 @@ void CircleDotVisualizer::setBar(int i, std::vector<float>& spectrum)
 	float angle = _theta * i;
 	float angleR = _thetaR * i;
 	
-	int h = (spectrum[i] / 0.125f) * vWindow->getSize().y * 0.5f;
+	int h = (int)((spectrum[i] / 0.125f) * vWindow->getSize().y * 0.5f);
 
 	_bars[i] = sf::RectangleShape(sf::Vector2f(_barWidth, _barWidth));
 	_bars[i].rotate(angle);

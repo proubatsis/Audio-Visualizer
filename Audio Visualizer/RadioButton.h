@@ -32,17 +32,17 @@ namespace gui
 		//Unchecks all IDs and checks the identified one
 		void check(int id)
 		{
-			for(int i = 0; i < _checkedStatus.size(); i++)
+			for(size_t i = 0; i < _checkedStatus.size(); i++)
 				_checkedStatus[i] = false;
 			
-			if(id >= 0 && id < _checkedStatus.size()) _checkedStatus[id] = true;
+			if(id >= 0 && id < (int)_checkedStatus.size()) _checkedStatus[id] = true;
 		}
 
 		//Returns the id that is checked, -1 if none are.
 		int getCheckedId()
 		{
 			int id = -1;
-			for(int i = 0; i < _checkedStatus.size(); i++)
+			for(size_t i = 0; i < _checkedStatus.size(); i++)
 				if(_checkedStatus[i]) id = i;
 			return id;
 		}

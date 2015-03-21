@@ -9,16 +9,16 @@ gui::Button::Button(std::string text, int x, int y, std::function<void ()> click
 
 	_text.setFont(_theme.font);
 	_text.setString(text);
-	_text.setPosition(x + 1, y + 1);
+	_text.setPosition(x + 1.0f, y + 1.0f);
 	_text.setColor(theme.text);
 	
 	_bounds.left = x;
 	_bounds.top = y;
 	_bounds.width = (_text.getCharacterSize() / 2) * text.length() + 16;
-	_bounds.height = _text.getCharacterSize() * 1.2f + 4;
+	_bounds.height = (int)(_text.getCharacterSize() * 1.2f + 4);
 
-	_shape.setPosition(x, y);
-	_shape.setSize(sf::Vector2f(_bounds.width, _bounds.height));
+	_shape.setPosition((float)x, (float)y);
+	_shape.setSize(sf::Vector2f((float)_bounds.width, (float)_bounds.height));
 	_shape.setFillColor(theme.background);
 	_shape.setOutlineColor(theme.border);
 	_shape.setOutlineThickness(1);
