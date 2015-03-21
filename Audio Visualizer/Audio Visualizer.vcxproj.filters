@@ -51,9 +51,6 @@
     <ClCompile Include="RGBCirclesVisualizer.cpp">
       <Filter>Source Files\Visualizer</Filter>
     </ClCompile>
-    <ClCompile Include="ColourVisualizer.cpp">
-      <Filter>Source Files\Visualizer</Filter>
-    </ClCompile>
     <ClCompile Include="CircleBarVisualizer.cpp">
       <Filter>Source Files\Visualizer</Filter>
     </ClCompile>
@@ -96,9 +93,6 @@
       <Filter>Header Files\Visualizer</Filter>
     </ClInclude>
     <ClInclude Include="RGBCirclesVisualizer.h">
-      <Filter>Header Files\Visualizer</Filter>
-    </ClInclude>
-    <ClInclude Include="ColourVisualizer.h">
       <Filter>Header Files\Visualizer</Filter>
     </ClInclude>
     <ClInclude Include="CircleBarVisualizer.h">

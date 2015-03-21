@@ -85,7 +85,6 @@
     <ClCompile Include="ChooseMenuForm.cpp" />
     <ClCompile Include="CircleBarVisualizer.cpp" />
     <ClCompile Include="CircleDotVisualizer.cpp" />
-    <ClCompile Include="ColourVisualizer.cpp" />
     <ClCompile Include="FMODMusic.cpp" />
     <ClCompile Include="Form.cpp" />
     <ClCompile Include="InvertedCircleBarVisualizer.cpp" />
@@ -101,7 +100,6 @@
     <ClInclude Include="ChooseMenuForm.h" />
     <ClInclude Include="CircleBarVisualizer.h" />
     <ClInclude Include="CircleDotVisualizer.h" />
-    <ClInclude Include="ColourVisualizer.h" />
     <ClInclude Include="FileDialog.h" />
     <ClInclude Include="FMODMusic.h" />
     <ClInclude Include="Form.h" />
