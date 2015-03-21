@@ -9,3 +9,5 @@ Audio Visualizer.opensdf
 Audio Visualizer/Release/
 Release/
 *.ttf
+*.py
+Audio Visualizer/build_files/
