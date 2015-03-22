@@ -78,6 +78,9 @@
     <ClCompile Include="InvertedCircleBarVisualizer.cpp">
       <Filter>Source Files\Visualizer</Filter>
     </ClCompile>
+    <ClCompile Include="RingsVisualizer.cpp">
+      <Filter>Source Files\Visualizer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Music.h">
@@ -129,6 +132,9 @@
       <Filter>Header Files\FileDialogs</Filter>
     </ClInclude>
     <ClInclude Include="InvertedCircleBarVisualizer.h">
+      <Filter>Header Files\Visualizer</Filter>
+    </ClInclude>
+    <ClInclude Include="RingsVisualizer.h">
       <Filter>Header Files\Visualizer</Filter>
     </ClInclude>
   </ItemGroup>
