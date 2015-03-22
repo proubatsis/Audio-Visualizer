@@ -1,3 +1,10 @@
+/*
+	Created by Panagiotis Roubatsis
+
+	Description: A visualizer that uses an inner ring to show
+	the higher frequencies and the outer ring to show the lower frequencies.
+*/
+
 #ifndef RINGS_VISUALIZER_H
 #define RINGS_VISUALIZER_H
 
