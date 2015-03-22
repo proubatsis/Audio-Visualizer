@@ -13,5 +13,6 @@
 #include "CircleDotVisualizer.h"
 #include "PieVisualizer.h"
 #include "InvertedCircleBarVisualizer.h"
+#include "RingsVisualizer.h"
 
 #endif

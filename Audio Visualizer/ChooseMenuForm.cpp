@@ -20,7 +20,7 @@ ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 	addText("Audio Visualizer - By: Panagiotis Roubatsis", BASE_X, BASE_Y);
 	addText("Choose an effect:", BASE_X, BASE_Y + 60);
 
-	addButton("Play Song!", BASE_X, BASE_Y + 370,
+	addButton("Play Song!", BASE_X, BASE_Y + 410,
 		[=]()
 	{
 		this->openFile();
@@ -33,6 +33,7 @@ ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 	addRadioButton("Dots", BASE_X + 25, BASE_Y + 220, _visualizerGroup);
 	addRadioButton("Colourful Pie", BASE_X + 25, BASE_Y + 260, _visualizerGroup);
 	addRadioButton("Rainbow Disc", BASE_X + 25, BASE_Y + 300, _visualizerGroup);
+	addRadioButton("Rings", BASE_X + 25, BASE_Y + 340, _visualizerGroup);
 
 	//Check the bar graph radio button by default
 	_visualizerGroup.check(0);
@@ -99,6 +100,9 @@ void ChooseMenuForm::playMusic()
 		break;
 	case 5:
 		_visualizer = new InvertedCircleBarVisualizer(vWindow, _music);
+		break;
+	case 6:
+		_visualizer = new RingsVisualizer(vWindow, _music);
 		break;
 	default:
 		_visualizer = new BarVisualizer(vWindow, _music);
