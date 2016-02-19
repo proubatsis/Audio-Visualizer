@@ -33,6 +33,7 @@ class Visualizer
 {
 public:
 	Visualizer(sf::RenderWindow* window, Music* music) { vWindow = window; vMusic = music; }
+	virtual ~Visualizer() {}
 	virtual void render() = 0;
 
 protected:
