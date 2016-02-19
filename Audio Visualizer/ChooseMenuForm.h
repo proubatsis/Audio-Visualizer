@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2015 Panagiotis Roubatsis
+    Copyright (C) 2016 Panagiotis Roubatsis
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -41,16 +41,13 @@ public:
 
 	void render();
 
+	//Return the visualizer that was chosen in the menu
+	Visualizer* getVisualizer();
+
 private:
-	bool _isFormActive;					//Should the form or the visualizer be rendered?
-
-	Music* _music;
-	Visualizer* _visualizer;
-
 	gui::RadioGroup _visualizerGroup;
 	std::string _filePath;
 
-	void playMusic();
 	void openFile();
 };
 

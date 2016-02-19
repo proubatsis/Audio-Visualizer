@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2015 Panagiotis Roubatsis
+    Copyright (C) 2016 Panagiotis Roubatsis
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,15 +22,8 @@
 #include <ShObjIdl.h>
 
 ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
-	: Form(window, theme)
+	: Form(window, theme), _filePath("")
 {
-	//Make the pointers null until we want to start playing music
-	_music = 0;
-	_visualizer = 0;
-
-	//The form should be displayed first
-	_isFormActive = true;
-
 	//Configure the form with its elements
 	const int BASE_X = 75;
 	const int BASE_Y = 25;
@@ -42,7 +35,7 @@ ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 		[=]()
 	{
 		this->openFile();
-		if(_filePath.length() > 0) this->playMusic();
+		if(_filePath.length() > 0) vWindow->close();
 	});
 
 	addRadioButton("Bar Graph", BASE_X + 25, BASE_Y + 100, _visualizerGroup);
@@ -59,19 +52,12 @@ ChooseMenuForm::ChooseMenuForm(sf::RenderWindow* window, gui::Theme& theme)
 
 ChooseMenuForm::~ChooseMenuForm()
 {
-	if(_music != 0) delete _music;
-	if(_visualizer != 0) delete _visualizer;
+
 }
 
 void ChooseMenuForm::render()
 {
-	if(_isFormActive)
-		Form::render();
-	else
-	{
-		_music->update();
-		_visualizer->render();
-	}
+	Form::render();
 }
 
 void ChooseMenuForm::openFile()
@@ -87,48 +73,40 @@ void ChooseMenuForm::openFile()
 	dialog.openDialog();
 
 	//Retrieve the file's path assuming that one has been chosen.
-	if(dialog.isFileChosen()) _filePath = dialog.getFilePath();
-	else _filePath = "";
+	if(dialog.isFileChosen())
+	{
+		_filePath = dialog.getFilePath();
+	}
+	else
+	{
+		_filePath = "";
+	}
 }
 
-void ChooseMenuForm::playMusic()
+Visualizer* ChooseMenuForm::getVisualizer()
 {
-	//Use the FMod library for music playback
-	//and analysis.
-	_music = new FMODMusic(_filePath);
+	Music* music;
 
-	//Determine which visualization to use
-	//based on which radio button is checked.
+	if(_filePath.length() > 0) music = new FMODMusic(_filePath);
+	else return 0;
+
 	switch(_visualizerGroup.getCheckedId())
 	{
 	case 0:
-		_visualizer = new BarVisualizer(vWindow, _music);
-		break;
+		return new BarVisualizer(vWindow, music);
 	case 1:
-		_visualizer = new CircleBarVisualizer(vWindow, _music);
-		break;
+		return new CircleBarVisualizer(vWindow, music);
 	case 2:
-		_visualizer = new RGBCirclesVisualizer(vWindow, _music);
-		break;
+		return new RGBCirclesVisualizer(vWindow, music);
 	case 3:
-		_visualizer = new CircleDotVisualizer(vWindow, _music);
-		break;
+		return new CircleDotVisualizer(vWindow, music);
 	case 4:
-		_visualizer = new PieVisualizer(vWindow, _music);
-		break;
+		return new PieVisualizer(vWindow, music);
 	case 5:
-		_visualizer = new InvertedCircleBarVisualizer(vWindow, _music);
-		break;
+		return new InvertedCircleBarVisualizer(vWindow, music);
 	case 6:
-		_visualizer = new RingsVisualizer(vWindow, _music);
-		break;
+		return new RingsVisualizer(vWindow, music);
 	default:
-		_visualizer = new BarVisualizer(vWindow, _music);
-		break;
+		return new BarVisualizer(vWindow, music);
 	}
-
-	_music->play();
-
-	//Display the visualizer instead of the form.
-	_isFormActive = false;
 }

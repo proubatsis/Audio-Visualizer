@@ -32,10 +32,35 @@
 
 using namespace std;
 
+const sf::VideoMode VIDEO_MODE = sf::VideoMode(1280, 720);
+const std::string TITLE = "Audio Visualizer - By: Panagiotis Roubatsis";
+const bool VERTICAL_SYNC = true;
+
+//Run the form and return the chosen Visualizer.
+//If no visualizer was chosen (Exit Button Pressed) then return 0.
+Visualizer* runForm(sf::RenderWindow& window);
+
+//Run the visualizer
+void runVisualizer(sf::RenderWindow& window, Visualizer* visualizer);
+
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "Audio Visualizer - By: Panagiotis Roubatsis");
-	window.setVerticalSyncEnabled(true);
+	sf::RenderWindow window;
+
+	Visualizer* visualizer = runForm(window);
+	while(visualizer != 0)
+	{
+		runVisualizer(window, visualizer);
+		visualizer = runForm(window);
+	}
+
+	return 0;
+}
+
+Visualizer* runForm(sf::RenderWindow& window)
+{
+	window.create(VIDEO_MODE, TITLE);
+	window.setVerticalSyncEnabled(VERTICAL_SYNC);
 
 	//Set up the theme for the GUI
 	gui::Theme theme;
@@ -62,5 +87,28 @@ int main()
 		window.display();
 	}
 
-	return 0;
+	return form.getVisualizer();
+}
+
+void runVisualizer(sf::RenderWindow& window, Visualizer* visualizer)
+{
+	window.create(VIDEO_MODE, TITLE);
+	window.setVerticalSyncEnabled(VERTICAL_SYNC);
+
+	visualizer->playMusic();
+
+	while(window.isOpen())
+	{
+		sf::Event e;
+		while(window.pollEvent(e))
+		{
+			if(e.type == sf::Event::Closed) window.close();
+		}
+
+		window.clear();
+		visualizer->render();
+		window.display();
+	}
+
+	delete visualizer;
 }
