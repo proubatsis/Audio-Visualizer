@@ -33,29 +33,50 @@
 
 namespace gui
 {
+	///
+	/// \brief A button that can be placed on a form and clicked.
+	/// A button that when clicked calls a given callback function.
+	///
 	class Button
 	{
 	public:
+		///
+		/// \brief Create a Button.
+		/// \param text The text that should be displayed on the button.
+		/// \param x The x coordinate relative to the window.
+		/// \param y The y coordinate relative to the window.
+		/// \param clickCallback The function that should be called when the button is clicked.
+		/// \param theme The form's theme.
+		/// \param window The window to render the button on.
+		///
 		Button(std::string text, int x, int y, std::function<void ()> clickCallback, Theme& theme, sf::RenderWindow* window);
 
 		//Calls the callback function if the given mouse co-ordinates are
 		//within the bounds of the button.
+
+		///
+		/// \brief Calls the callback function if the coordinates are within the Button's bounds.
+		///
 		virtual void click(int x, int y);
 
-		//The button adjusts its style if the given mouse co-ordiantes
-		//are within the bounds of the button.
+		///
+		/// \brief Adjust the Button's style if the coordinates are within the Button's bounds.
+		///
 		virtual void hover(int x, int y);
 
+		///
+		/// \brief Render the button.
+		///
 		virtual void render();
 
 	protected:
 		Theme& _theme;
-		std::function<void ()> _callback;	//This will be called if the button is clicked
+		std::function<void ()> _callback;	///< This will be called if the button is clicked
 		sf::RenderWindow* vWindow;
 
-		sf::Rect<int> _bounds;				//The bounds of the button, used for hover and click calculations
-		sf::RectangleShape _shape;			//The rectangle shape to be rendered as the body of the button
-		sf::Text _text;						//The text to be rendered as part of the button
+		sf::Rect<int> _bounds;				///< The bounds of the button, used for hover and click calculations
+		sf::RectangleShape _shape;			///< The rectangle shape to be rendered as the body of the button
+		sf::Text _text;						///< The text to be rendered as part of the button
 	};
 };
 

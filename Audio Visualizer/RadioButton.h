@@ -33,13 +33,21 @@
 
 namespace gui
 {
-
+	///
+	/// \brief A group of radio buttons
+	///
 	class RadioGroup
 	{
 	public:
+		///
+		/// \brief Create a RadioGroup
+		///
 		RadioGroup() {}
 
-		//Adds a radio button and returns it's id
+		///
+		/// \brief Create and add a RadioButton to the group
+		/// \return id of the RadioButton
+		///
 		int add()
 		{
 			int id = _checkedStatus.size();
@@ -47,7 +55,9 @@ namespace gui
 			return id;
 		}
 
-		//Unchecks all IDs and checks the identified one
+		///
+		/// \brief Check the button with the given id
+		///
 		void check(int id)
 		{
 			for(size_t i = 0; i < _checkedStatus.size(); i++)
@@ -57,6 +67,10 @@ namespace gui
 		}
 
 		//Returns the id that is checked, -1 if none are.
+
+		///
+		/// \brief Return the id of the radio button that is currently checked.
+		/// \return id of the radio button that is currently checked
 		int getCheckedId()
 		{
 			int id = -1;
@@ -70,18 +84,35 @@ namespace gui
 		std::vector<bool> _checkedStatus;
 	};
 
+	///
+	/// \brief A radio button that can be placed on a form and chosen.
+	/// A button that when clicked chooses a different item.
+	///
 	class RadioButton : public Button
 	{
 	public:
+		///
+		/// \brief Add a radio button to the form.
+		/// \param text The text that should be displayed beside the radio button.
+		/// \param x The x coordinate relative to the window.
+		/// \param y The y coordinate relative to the window.
+		/// \param group The RadioGroup that this radio button belongs to.
+		/// \param theme The form's theme.
+		/// \param window The window to render the radio button on.
+		///
 		RadioButton(std::string text, int x, int y, RadioGroup& group, Theme& theme, sf::RenderWindow* window);
 
+		///
+		/// \brief Check this radio button if the coordinates are within its bounds.
+		///
 		void click(int x, int y);
+
 		void render();
 
 	protected:
-		int _groupID;
-		RadioGroup& _group;
-		sf::CircleShape _selectionCircle;
+		int _groupID;			///< The RadioButton's id within its group
+		RadioGroup& _group;		///< The RadioGroup that this belongs to
+		sf::CircleShape _selectionCircle;	///< Used to render the radio button
 	};
 
 };

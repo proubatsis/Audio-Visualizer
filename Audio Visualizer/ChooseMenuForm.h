@@ -33,6 +33,9 @@
 #include "FMODMusic.h"
 #include "Visualizers.h"
 
+///
+/// \brief Provides an interface to choose a visualizer and song.
+///
 class ChooseMenuForm : public gui::Form
 {
 public:
@@ -42,12 +45,22 @@ public:
 	void render();
 
 	//Return the visualizer that was chosen in the menu
+
+	///
+	/// \brief Return the visualizer that was chosen in the menu.
+	/// Return a pointer to the visualizer that was chosen. Responsibility is
+	/// on the caller to eventually delete the pointer.
+	/// \return Chosen visualizer
+	///
 	Visualizer* getVisualizer();
 
 private:
-	gui::RadioGroup _visualizerGroup;
-	std::string _filePath;
+	gui::RadioGroup _visualizerGroup;	///< RadioGroup for the visualizer radio buttons
+	std::string _filePath;				///< Path to the audio file that was chosen
 
+	///
+	/// \brief Show a file dialog
+	///
 	void openFile();
 };
 

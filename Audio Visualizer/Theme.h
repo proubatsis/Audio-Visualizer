@@ -30,12 +30,20 @@
 
 namespace gui
 {
+	///
+	/// \brief A theme for use with a Form.
+	///
 	struct Theme
 	{
-		int formWidth;
+		int formWidth;	///< Width of the form
 
-		sf::Font font;
-		sf::Color background, formBackground, border, text, accent;
+		sf::Font font;	///< Font to use for rendering text
+
+		sf::Color background;		///< Main background
+		sf::Color formBackground;	///< Background of the form
+		sf::Color border;			///< Form element outlines
+		sf::Color text;				///< Text color of form elements
+		sf::Color accent;			///< Used for color change on hover events
 	};
 };
 
