@@ -31,14 +31,24 @@
 #include <vector>
 #include "FileDialog.h"
 
+///
+/// \brief FileDialog for choosing a file.
+/// FileDialog specific to the Windows OS.
+///
 class WindowsFileDialog : public FileDialog
 {
 public:
-	
-	//Standard open file dialog with no filters
+	///
+	/// \brief Create a WindowsFileDialog
+	/// Create a dialog with no filters.
+	///
 	WindowsFileDialog();
 
-	//Assign filters so only specific file types are displayed in the dialog
+	///
+	/// \brief Create a WindowsFileDialog
+	/// Create a dialog with the given file filters.
+	/// \param filterSpecifications Used to filter the appropriate files.
+	///
 	WindowsFileDialog(std::vector<COMDLG_FILTERSPEC> filterSpecifications);
 
 	void openDialog();

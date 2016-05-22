@@ -26,16 +26,30 @@
 
 #include <string>
 
+///
+/// \brief File dialog for choosing a file.
+/// Abstract class representing a file dialog.
+/// There are different implementations depending on the OS.
+///
 class FileDialog
 {
 public:
 
-	//Opens and displays the dialog to the user
+	///
+	/// \brief Open the dialog and display it.
+	///
 	virtual void openDialog() = 0;
 
+	///
+	/// \brief Return the path to the chosen file.
+	/// \return Path to the chosen file
+	///
 	virtual std::string getFilePath() = 0;
 	
-	//Did the user click ok or cancel?
+	///
+	/// \brief Return true if "Ok" was clicked, return false if "Cancel" was clicked.
+	/// \return true if "Ok" was clicked, false if "Cancel" was clicked
+	///
 	virtual bool isFileChosen() = 0;
 };
 
