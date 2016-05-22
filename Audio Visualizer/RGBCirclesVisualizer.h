@@ -28,6 +28,9 @@
 
 #include "Visualizer.h"
 
+///
+/// \brief Three circles (One red, one green, one blue) growing or shrinking based on the music.
+///
 class RGBCirclesVisualizer : public Visualizer
 {
 public:
@@ -39,7 +42,13 @@ private:
 	const float RADIUS;
 	float _aHist, _bHist, _cHist;					//Used for time smoothing
 
-	void adjustCircles(float a, float b, float c);	//Adjust the radius for each circle
+	///
+	/// \brief Adjust the radius for each circle
+	/// \param a Radius of red circle
+	/// \param b Radius of blue circle
+	/// \param c Radius of green circle
+	///
+	void adjustCircles(float a, float b, float c);
 
 	float sum(float* vals, int size);
 	float smooth(float n, float& hist);

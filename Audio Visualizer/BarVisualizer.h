@@ -28,10 +28,14 @@
 #include <vector>
 #include "Visualizer.h"
 
+///
+/// \brief A standard bar graph visualization of Amplitude vs Frequency.
+///
 class BarVisualizer : public Visualizer
 {
 public:
 	BarVisualizer(sf::RenderWindow* window, Music* music);
+
 	virtual void render();
 
 private:
@@ -40,15 +44,26 @@ private:
 
 protected:
 	float _barWidth;
-	std::vector<sf::RectangleShape> _bars;	//The bars that will be rendered to the screen
+	std::vector<sf::RectangleShape> _bars;	///< The bars that will be rendered to the screen
 
-	//Smooth the current spectrum based on the previous one using interpolation.
+	///
+	/// \brief Smooth the current spectrum based on the previous one using interpolation.
+	/// \param spectrum Current spectrum.
+	///
 	void smooth(std::vector<float>& spectrum);
 
+	///
+	/// \brief Initialize _bars with inital values.
+	///
 	virtual void initializeBars();
 
-	//Sets the bar of given index 'i' to have specific properties
-	//such as position, size and rotation based on the spectrum values.
+	///
+	/// \brief Set the bar at the given index to have specific properties.
+	/// Set the bar at index i to take on certain properties such as position, size,
+	/// and rotation based on the spectrum values.
+	///
+	/// \param i Index of the bar to adjust
+	/// \param spectrum The current spectrum.
 	virtual void setBar(int i, std::vector<float>& spectrum);
 };
 

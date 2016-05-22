@@ -30,6 +30,12 @@
 
 #include "CircleBarVisualizer.h"
 
+///
+/// \brief Similar to CircleBarVisualizer except that the bars extend inwards.
+/// Instead of the bars extending outwards they are pointing inwards towards the center of the circle.
+///	They also have colour assigned to them, the colour transitions around the circle
+/// based on the elapsed time and how loud the music is at a given moment.
+///
 class InvertedCircleBarVisualizer : public CircleBarVisualizer
 {
 public:
@@ -38,7 +44,7 @@ public:
 
 protected:
 	float _volume;
-	float _colorAngleOffset;	//The offset angle to adjust the position of the colours on the wheel
+	float _colorAngleOffset;	///< The offset angle to adjust the position of the colours on the wheel
 	sf::Clock _clock;
 
 	virtual void setBar(int i, std::vector<float>& spectrum);

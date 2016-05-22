@@ -28,6 +28,11 @@
 
 #include "Visualizer.h"
 
+///
+/// \brief A visualizer composed of two rings.
+/// A visualizer that uses an inner ring to showthe higher frequencies
+/// and the outer ring to show the lower frequencies.
+/// 
 class RingsVisualizer : public Visualizer
 {
 public:
@@ -41,7 +46,18 @@ protected:
 	float _innerRadius, _outerRadius, _innerAmplitude, _outerAmplitude;
 	std::vector<sf::Vertex> _innerLines, _outerLines;
 
+	///
+	/// \brief Adjust the inner ring
+	/// \param i Index of a point on the inner ring
+	/// \param spectrum Current spectrum
+	///
 	virtual void setInner(int i, std::vector<float>& spectrum);
+
+	///
+	/// \brief Adjust the outer ring
+	/// \param i Index of a point on the outer ring
+	/// \param spectrum Current spectrum
+	///
 	virtual void setOuter(int i, std::vector<float>& spectrum);
 };
 

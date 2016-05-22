@@ -31,6 +31,13 @@
 
 #include "Visualizer.h"
 
+///
+/// \brief A visualizer made up of several "pie" slices.
+/// An effect where there is a colourful circle that is cut into "pie" slices. The slices move away from the center depending
+/// on the amplitude of certain frequencies. The colours get more intense as
+/// the amplitude increases. There are two circles on either side of the "pie".
+/// These are used to show the low frequencies, usually beats.
+///
 class PieVisualizer : public Visualizer
 {
 public:
@@ -39,20 +46,22 @@ public:
 
 protected:
 
-	//A slice of "pie"
+	///
+	/// \brief A "slice" of the pie.
+	///
 	struct Segment
 	{
 		sf::ConvexShape triangle;
 		sf::Vector2f moveDirection;
 	};
 
-	const int SEGMENTS;
-	const float BASE_RADIUS;
+	const int SEGMENTS;			///< The amount of slices
+	const float BASE_RADIUS;	///< The radius of the pie assuming no music
 
 	sf::CircleShape _beatCircle, _beatCircle2;
 	std::vector<Segment> _segments;
 
-	std::vector<float> _previousSums;	//Used for time smoothing
+	std::vector<float> _previousSums;	///< Used for time smoothing
 
 	float sum(float* values, int size);
 	void smooth(std::vector<float>& sums);

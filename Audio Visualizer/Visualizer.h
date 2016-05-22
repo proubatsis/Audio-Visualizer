@@ -29,14 +29,29 @@
 #include <SFML/Graphics.hpp>
 #include "Music.h"
 
+///
+/// \brief A music visualizer that plays and renders a music visualization.
+///
 class Visualizer
 {
 public:
+	///
+	/// \brief Create a Visualizer
+	/// \param window The window to render the visualizer on.
+	/// \param music The music to play and analyze for the visualization.
+	///
 	Visualizer(sf::RenderWindow* window, Music* music) { vWindow = window; vMusic = music; }
+
 	virtual ~Visualizer() { delete vMusic; }
+
+	///
+	/// \brief Render the visualization.
+	///
 	virtual void render() = 0;
 
-	//Play the music
+	///
+	/// \brief Play the music.
+	///
 	virtual void playMusic() { vMusic->play(); }
 
 protected:

@@ -28,6 +28,9 @@
 
 #include "CircleBarVisualizer.h"
 
+///
+/// \brief Dots jump out from the middle of the circle to visualize music.
+///
 class CircleDotVisualizer : public CircleBarVisualizer
 {
 public:
