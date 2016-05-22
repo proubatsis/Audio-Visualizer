@@ -29,14 +29,28 @@
 
 #include <vector>
 
+///
+/// \brief Plays music and provides the spectrum data to analyze it.
+///
 class Music
 {
 public:
 	virtual ~Music() {}
 
+	///
+	/// \brief Play the music
+	///
 	virtual void play() = 0;
+
+	///
+	/// \brief Update spectrum data.
+	///
 	virtual void update() = 0;
 
+	///
+	/// \brief Return the spectrum data
+	/// \return Spectrum data
+	///
 	virtual std::vector<float> getSpectrum() = 0;
 };
 

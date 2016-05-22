@@ -30,10 +30,18 @@
 #include <string>
 #include <fmod.hpp>
 
+///
+/// \brief Music implementation using the FMOD library
+///
 class FMODMusic : public Music
 {
 public:
+	///
+	/// \brief Create an instance of FMODMusic
+	/// \param fileName Path to the audio file
+	///
 	FMODMusic(std::string fileName);
+	
 	~FMODMusic();
 
 	void play();
